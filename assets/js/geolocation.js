@@ -56,8 +56,8 @@ Response:
 // import ip address from cloudflare.js
 import { getUserIpAddress } from "cloudflare.js";
 
-// export and get latitude and longitude from api
-export async function getLatLon() {
+// export and get relevant geo data from api
+export async function getGeoData() {
     const url = "http://ip-api.com/json/"
     try {
         const ip = await getUserIpAddress();
