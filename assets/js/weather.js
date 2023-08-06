@@ -41,13 +41,8 @@
 
 */
 
-
-
-//import for latitude and longitude
-import { getGeoData } from "geolocation.js";
-
 // export and get various weather data
-export async function getWeather(){
+export async function fetchWeather(lat, lon){
     // WMO weather codes
     const weatherCodes ={
         0: 'Clear sky',
@@ -79,16 +74,15 @@ export async function getWeather(){
         96: 'Thunderstorm with slight hail',
         99: 'Thunderstorm with heavy hail'
     };
-    
-    const coordinates = getGeoData();
-    const url =`https://api.open-meteo.com/v1/forecast?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_hours,precipitation_probability_max&timezone=auto&forecast_days=1`
+
+    const url =`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_hours,precipitation_probability_max&timezone=auto&forecast_days=1`
     try{
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Failed to fetch weather response. Status: ${response.statusText}`)
         }
         const data = await response.json();
-        return data;
+        return data.daily;
     }
     catch(error){
         console.error(`Error: ${error}`);

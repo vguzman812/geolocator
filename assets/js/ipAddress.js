@@ -38,7 +38,7 @@ Initial Return Format
 */
 
 // export and get user IP address
-export async function getUserIpAddress() {
+export async function fetchIpAddress() {
     // api endpoints. both the same, but both provided for comprehensiveness.
     // const ipUrl = "https://1.1.1.1/cdn-cgi/trace";
 

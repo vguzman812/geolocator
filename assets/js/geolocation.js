@@ -53,14 +53,12 @@ Response:
 
 */
 
-// import ip address from cloudflare.js
-import { getUserIpAddress } from "cloudflare.js";
+
 
 // export and get relevant geo data from api
-export async function getGeoData() {
+export async function fetchGeoData(ip) {
     const url = "http://ip-api.com/json/"
     try {
-        const ip = await getUserIpAddress();
         const response = await fetch(url + ip);
         // if bad response, throw error
         if (!response.ok) {
