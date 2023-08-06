@@ -1,7 +1,7 @@
 // Define the API endpoint
-const ipUrl = "https://1.1.1.1/cdn-cgi/trace"
+const ipUrl = "https://1.1.1.1/cdn-cgi/trace";
 
-const url = 'https://www.cloudflare.com/cdn-cgi/trace';
+const url = "https://www.cloudflare.com/cdn-cgi/trace";
 
 /*
 Initial Return Format
@@ -27,23 +27,29 @@ Initial Return Format
 
 // Use the fetch method to get data from the API
 fetch(url)
-  .then(response => {
-    // Check if the request was successful
-    if (!response.ok) {
-      throw new Error(`Network response was not ok: ${response}`);
-    }
-    // Parse the data from the response. Initially not in JSON format.
-    return response.text();
-  })
-  .then(data => {
-    // Handle the parsed data
-    // data to array.
-    data = data.trim().split('\n').map(e=>e.split('='))
-    // data from array to object
-    jsonified = Object.fromEntries(data)
-    console.log(jsonified.ip)
-  })
-  .catch(error => {
-    // Handle any errors that occurred during the fetch
-    console.error('There was a problem with the fetch operation:', error.message);
-  });
+    .then((response) => {
+        // Check if the request was successful
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response}`);
+        }
+        // Parse the data from the response. Initially not in JSON format.
+        return response.text();
+    })
+    .then((data) => {
+        // Handle the parsed data
+        // data to array.
+        data = data
+            .trim()
+            .split("\n")
+            .map((e) => e.split("="));
+        // data from array to object
+        jsonified = Object.fromEntries(data);
+        console.log(jsonified.ip);
+    })
+    .catch((error) => {
+        // Handle any errors that occurred during the fetch
+        console.error(
+            "There was a problem with the fetch operation:",
+            error.message
+        );
+    });
