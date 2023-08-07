@@ -82,6 +82,8 @@ export async function fetchWeather(lat, lon) {
             throw new Error(`Failed to fetch weather response. Status: ${response.statusText}`)
         }
         const data = await response.json();
+        const dailyData = data.daily;
+        dailyData.weathercode = weatherCodes[dailyData.weathercode]
         return data.daily;
     }
     catch (error) {

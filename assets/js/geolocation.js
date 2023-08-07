@@ -67,7 +67,8 @@ export async function fetchGeoData(ip) {
         const data = await response.json()
         return {
             latitude: data.lat,
-            longitude: data.lon
+            longitude: data.lon,
+            city: data.city,
         }
     }
     catch(error) {
