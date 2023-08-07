@@ -31,7 +31,7 @@ export async function getData() {
 async function displayWeather(){
     try {
         const userInfo = await getData();
-        const weatherData = userInfo.weatherData;
+        const { weatherData } = userInfo;
         
         const weatherLocation = document.querySelector("#weather-location");
         const weatherReport = document.querySelector("#weather-report");
@@ -45,4 +45,30 @@ async function displayWeather(){
     }
 }
 
+
+async function displayUserData(){
+    try {
+        const userInfo = await getData();
+        const { ip, geoData } = userInfo;
+        const { city, regionName, isp, org } = geoData;
+
+        const aboutMessage = document.querySelector("#about-message")
+
+        const message = `
+            Your IP address is ${ip} and you are currently in ${city}, ${regionName}. 
+            Your Internet Service Provider (ISP) is ${isp}. 
+            It's fascinating, isn't it? With just a bit of internet knowledge, we can find out so much more than we think. 
+            This information is freely available and can be accessed by anyone. 
+            It's a reminder of how interconnected our world is and how much information we're sharing, often without even realizing it.
+            This data has been found using <a href="https://github.com/fawazahmed0/cloudflare-trace-api">Cloudflare trace api</a>, and <a href="https://ip-api.com/">ip-api</a>.`;
+
+        aboutMessage.innerHTML = message;
+
+    } catch (error) {
+        console.log(`Error in displayUserData: ${error.message}`)
+        throw error;
+    }
+}
+
 displayWeather()
+displayUserData()

@@ -3,14 +3,35 @@
 	<head>
 		<title>Where Am I?</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, user-scalable=no"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="assets/favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="assets/favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="assets/favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="assets/favicon/site.webmanifest" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript>
-            <link rel="stylesheet" href="assets/css/noscript.css"/>
-        </noscript>
-        <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
-        <script async type="module" src="assets/js/displayData.js"></script>
-        <script async type="module" src="assets/js/maps.js"></script>
+			<link rel="stylesheet" href="assets/css/noscript.css" />
+		</noscript>
+		<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
+		<script async type="module" src="assets/js/displayData.js"></script>
+		<script async type="module" src="assets/js/maps.js"></script>
 	</head>
 	<body class="is-preload-0 is-preload-1">
 		<!-- Wrapper -->
@@ -18,7 +39,7 @@
 			<!-- Home -->
 			<article id="home" class="panel special">
 				<div class="image">
-                    <div id="map"></div>
+					<div id="map"></div>
 					<!-- <img
 						src="images/pic01.jpg"
 						alt=""
@@ -44,11 +65,6 @@
 								<li>
 									<a href="#about" class="button">About</a>
 								</li>
-								<li>
-									<a href="#contact" class="button"
-										>Contact Me</a
-									>
-								</li>
 							</ul>
 						</nav>
 						<ul class="icons">
@@ -68,7 +84,7 @@
 			<article id="weather" class="panel secondary">
 				<div class="image">
 					<img
-						src="images/pic02.jpg"
+						src="assets/images/umbrellas.jpg"
 						alt=""
 						data-position="center center"
 					/>
@@ -101,7 +117,7 @@
 			<article id="about" class="panel secondary">
 				<div class="image">
 					<img
-						src="images/pic03.jpg"
+						src="assets/images/magnifying-glass.jpg"
 						alt=""
 						data-position="center center"
 					/>
@@ -114,11 +130,11 @@
 						<header>
 							<h2>About</h2>
 							<p>
-								Magna feugiat lorem ipsum dolor<br />
-								veroeros sed adipiscing
+								What you see here has been <br />freely
+								acquired.
 							</p>
 						</header>
-						<p>
+						<p id="about-message">
 							Lorem ipsum dolor sit amet, magna etiam adipiscing
 							elit. Vivamus in quam eu turpis venenatis euismod
 							eget ac velit. Magna pharetra eleifend urna quis
@@ -126,60 +142,6 @@
 							accumsan. Sed nunc lacus, lobortis nec ante sit
 							amet.
 						</p>
-						<p>
-							Vitae quis magna. Sed condimentum dui sed nunc
-							dapibus dignissim. Sed at arcu gravida, vehicula
-							massa ut, consectetur urna. Morbi eu venenatis
-							turpis. In tincidunt pharetra etiam veroeros.
-						</p>
-					</div>
-				</div>
-			</article>
-
-			<!-- Contact -->
-			<article id="contact" class="panel secondary">
-				<!-- <div class="image">
-							<img src="images/pic04.jpg" alt="" data-position="bottom center" />
-						</div> -->
-				<div class="content">
-					<ul class="actions animated spinX">
-						<li><a href="#" class="button small back">Back</a></li>
-					</ul>
-					<div class="inner">
-						<header>
-							<h2>Contact</h2>
-						</header>
-						<form method="post" action="#">
-							<div class="fields">
-								<div class="field half">
-									<label for="name">Name</label>
-									<input type="text" name="name" id="name" />
-								</div>
-								<div class="field half">
-									<label for="email">Email</label>
-									<input
-										type="text"
-										name="email"
-										id="email"
-									/>
-								</div>
-								<div class="field">
-									<label for="message">Message</label>
-									<textarea
-										name="message"
-										id="message"
-										rows="5"
-									></textarea>
-								</div>
-							</div>
-							<ul class="actions">
-								<li>
-									<a href="" class="button submit"
-										>Send Message</a
-									>
-								</li>
-							</ul>
-						</form>
 					</div>
 				</div>
 			</article>
@@ -200,9 +162,50 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 
-
-        <!-- Google Maps bootstrap loader -->
-        <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-        ({key: "AIzaSyAhK7zyZGYGbJX_zS9BhIuFvmnXSCcsCOk", v: "weekly"});</script>
+		<!-- Google Maps bootstrap loader -->
+		<script>
+			((g) => {
+				var h,
+					a,
+					k,
+					p = "The Google Maps JavaScript API",
+					c = "google",
+					l = "importLibrary",
+					q = "__ib__",
+					m = document,
+					b = window;
+				b = b[c] || (b[c] = {});
+				var d = b.maps || (b.maps = {}),
+					r = new Set(),
+					e = new URLSearchParams(),
+					u = () =>
+						h ||
+						(h = new Promise(async (f, n) => {
+							await (a = m.createElement("script"));
+							e.set("libraries", [...r] + "");
+							for (k in g)
+								e.set(
+									k.replace(
+										/[A-Z]/g,
+										(t) => "_" + t[0].toLowerCase()
+									),
+									g[k]
+								);
+							e.set("callback", c + ".maps." + q);
+							a.src =
+								`https://maps.${c}apis.com/maps/api/js?` + e;
+							d[q] = f;
+							a.onerror = () =>
+								(h = n(Error(p + " could not load.")));
+							a.nonce =
+								m.querySelector("script[nonce]")?.nonce || "";
+							m.head.append(a);
+						}));
+				d[l]
+					? console.warn(p + " only loads once. Ignoring:", g)
+					: (d[l] = (f, ...n) =>
+							r.add(f) && u().then(() => d[l](f, ...n)));
+			})({ key: "AIzaSyAhK7zyZGYGbJX_zS9BhIuFvmnXSCcsCOk", v: "weekly" });
+		</script>
 	</body>
 </html>

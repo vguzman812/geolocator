@@ -62,13 +62,16 @@ export async function fetchGeoData(ip) {
         const response = await fetch(url + ip);
         // if bad response, throw error
         if (!response.ok) {
-            throw new Error(`Failed to fetch lat/lon. Status: ${response.statusText}`)
+            throw new Error(`Failed to fetch geoData. Status: ${response.statusText}`)
         }
         const data = await response.json()
         return {
             latitude: data.lat,
             longitude: data.lon,
             city: data.city,
+            regionName: data.regionName,
+            isp: data.isp,
+            org: data.org
         }
     }
     catch(error) {
