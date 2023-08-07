@@ -281,7 +281,7 @@ input, select, textarea {
 	}
 
 	header {
-		margin: 3em 0;
+		margin: 2em 0;
 	}
 
 		header > :first-child {
@@ -1020,6 +1020,7 @@ input, select, textarea {
 		button.back,
 		.button.back {
 			padding-left: 4.75em;
+            margin-top:1em;
 		}
 
 			input[type="submit"].back:before,
@@ -1206,8 +1207,8 @@ input, select, textarea {
 		-webkit-perspective: 1000px;
 		-ms-perspective: 1000px;
 		perspective: 1000px;
-		min-height: 100vh;
-		padding: 3em;
+		min-height: 70vh;
+		padding: 2em;
 		width: 100%;
 	}
 
@@ -1300,7 +1301,7 @@ input, select, textarea {
 			-ms-transition: -ms-transform 0.5s ease;
 			transition: transform 0.5s ease;
 			background-color: #ffffff;
-			padding: 3em;
+			padding: 0 2em;
 			width: 50%;
 		}
 
@@ -1391,7 +1392,7 @@ input, select, textarea {
 				}
 
 				.panel > .content {
-					padding: 3em 2.5em;
+					padding: 1em 2.5em;
 				}
 
 		}
@@ -1445,7 +1446,7 @@ input, select, textarea {
 
 				.panel > .image {
 					min-height: 18em;
-					max-height: 30vh;
+					max-height: 100%;
 				}
 
 				.panel > .content {
@@ -1581,3 +1582,27 @@ input, select, textarea {
 		body.is-preload-0 #footer {
 			opacity: 0;
 		}
+
+
+/********************** Map ********************/
+
+#map {
+    border-radius: 0;
+    display: block;
+    min-height:100%;
+}
+
+#map button {
+    border-radius:2px !important;
+    display:flex !important;
+    justify-content:center !important;
+}
+
+
+@media screen and (max-width: 980px) {
+    #map {
+        height:30em;
+    }
+}
+
+

@@ -3,14 +3,14 @@
 	<head>
 		<title>Where Am I?</title>
 		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, user-scalable=no"
-		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript
-			><link rel="stylesheet" href="assets/css/noscript.css"
-		/></noscript>
+		<noscript>
+            <link rel="stylesheet" href="assets/css/noscript.css"/>
+        </noscript>
+        <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
+        <script async type="module" src="assets/js/displayData.js"></script>
+        <script async type="module" src="assets/js/maps.js"></script>
 	</head>
 	<body class="is-preload-0 is-preload-1">
 		<!-- Wrapper -->
@@ -18,11 +18,12 @@
 			<!-- Home -->
 			<article id="home" class="panel special">
 				<div class="image">
-					<img
+                    <div id="map"></div>
+					<!-- <img
 						src="images/pic01.jpg"
 						alt=""
 						data-position="center center"
-					/>
+					/> -->
 				</div>
 				<div class="content">
 					<div class="inner">
@@ -204,6 +205,10 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-		<script type="module" src="assets/js/displayData.js"></script>
+
+
+        <!-- Google Maps bootstrap loader -->
+        <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyAhK7zyZGYGbJX_zS9BhIuFvmnXSCcsCOk", v: "weekly"});</script>
 	</body>
 </html>

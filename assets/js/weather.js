@@ -42,9 +42,9 @@
 */
 
 // export and get various weather data
-export async function fetchWeather(lat, lon){
+export async function fetchWeather(lat, lon) {
     // WMO weather codes
-    const weatherCodes ={
+    const weatherCodes = {
         0: 'Clear sky',
         1: 'Mainly clear',
         2: 'Partly cloudy',
@@ -75,8 +75,8 @@ export async function fetchWeather(lat, lon){
         99: 'Thunderstorm with heavy hail'
     };
 
-    const url =`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_hours,precipitation_probability_max&timezone=auto&forecast_days=1`
-    try{
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_hours,precipitation_probability_max&timezone=auto&forecast_days=1`
+    try {
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Failed to fetch weather response. Status: ${response.statusText}`)
@@ -84,7 +84,7 @@ export async function fetchWeather(lat, lon){
         const data = await response.json();
         return data.daily;
     }
-    catch(error){
+    catch (error) {
         console.error(`Error: ${error}`);
         throw error;
     }
