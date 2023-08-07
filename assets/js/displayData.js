@@ -15,7 +15,6 @@ export async function getData() {
         userInfo["geoData"] = geoData
 
         const weatherData = await fetchWeather(geoData.latitude, geoData.longitude);
-        console.log(weatherData);
         userInfo["weatherData"] = weatherData
 
         // console.log(userInfo)
