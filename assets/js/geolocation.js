@@ -1,54 +1,47 @@
-/* Sample Request and Response
+/* Sample Response
 
-https://ip-api.com/docs/api:json
-
-Request: http://ip-api.com/json/24.48.0.1
+https://ipgeolocation.io/documentation/ip-geolocation-api.html
 
 Response:
 
 {
-    "query": "IP used for the query"
-    "status": "success or fail",
-    "message": "included only when status is fail. Can be one of the following: private range, reserved range, invalid query.",
-    "continent": "Continent name",
-    "continentCode": "Two-letter continent code",
-    "country": "Country name",
-    "countryCode": "Two-letter country code ISO 3166-1 alpha-2",
-    "region": "Region/state short code (FIPS or ISO)",
-    "regionName": "Region/state",
-    "city": "City",
-    "district": "District (subdivision of city)",
-    "zip": "Zip code",
-    "lat": "Latitude",
-    "lon": "Longitude",
-    "timezone": "Timezone (tz)",
-    "offset": "Timezone UTC DST offset in seconds",
-    "currency": "National currency",
-    "isp": "ISP name",
-    "org": "Organization name",
-    "as": "AS number and organization, separated by space (RIR). Empty for IP blocks not being announced in BGP tables.",
-    "asname": "AS name (RIR). Empty for IP blocks not being announced in BGP tables.",
-    "reverse": "Reverse DNS of the IP (can delay response)",
-    "mobile": "Mobile (cellular) connection",
-    "proxy": "Proxy, VPN or Tor exit address",
-    "hosting": "Hosting, colocated or data center",
-}
-
-{
-  "query": "24.48.0.1",
-  "status": "success",
-  "country": "Canada",
-  "countryCode": "CA",
-  "region": "QC",
-  "regionName": "Quebec",
-  "city": "Montreal",
-  "zip": "H2Y",
-  "lat": 45.504,
-  "lon": -73.552,
-  "timezone": "America/Toronto",
-  "isp": "Le Groupe Videotron Ltee",
-  "org": "Videotron Ltee",
-  "as": "AS5769 Videotron Telecom Ltee"
+    "ip": "8.8.8.8",
+    "hostname": "dns.google",
+    "continent_code": "NA",
+    "continent_name": "North America",
+    "country_code2": "US",
+    "country_code3": "USA",
+    "country_name": "United States",
+    "country_capital": "Washington, D.C.",
+    "state_prov": "California",
+    "district": "Santa Clara",
+    "city": "Mountain View",
+    "zipcode": "94043-1351",
+    "latitude": "37.42240",
+    "longitude": "-122.08421",
+    "is_eu": false,
+    "calling_code": "+1",
+    "country_tld": ".us",
+    "languages": "en-US,es-US,haw,fr",
+    "country_flag": "https://ipgeolocation.io/static/flags/us_64.png",
+    "geoname_id": "6301403",
+    "isp": "Google LLC",
+    "connection_type": "",
+    "organization": "Google LLC",
+    "asn": "AS15169",
+    "currency": {
+        "code": "USD",
+        "name": "US Dollar",
+        "symbol": "$"
+    },
+    "time_zone": {
+        "name": "America/Los_Angeles",
+        "offset": -8,
+        "current_time": "2020-12-17 07:49:45.872-0800",
+        "current_time_unix": 1608220185.872,
+        "is_dst": false,
+        "dst_savings": 1
+    }
 }
 
 */
@@ -57,21 +50,21 @@ Response:
 
 // export and get relevant geo data from api
 export async function fetchGeoData(ip) {
-    const url = "http://ip-api.com/json/"
+    const apiKey = "8b26d730fdfe40e2a7eb1cc7cafaa23d"
+    const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${apiKey}&ip=${ip}`
     try {
-        const response = await fetch(url + ip);
+        const response = await fetch(url);
         // if bad response, throw error
         if (!response.ok) {
             throw new Error(`Failed to fetch geoData. Status: ${response.statusText}`)
         }
         const data = await response.json()
         return {
-            latitude: data.lat,
-            longitude: data.lon,
+            latitude: Number(data.latitude),
+            longitude: Number(data.longitude),
             city: data.city,
-            regionName: data.regionName,
+            regionName: data.state_prov,
             isp: data.isp,
-            org: data.org
         }
     }
     catch(error) {
