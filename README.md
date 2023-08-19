@@ -111,6 +111,16 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Other Projects
+
+Check out these other projects of mine:
+
+**Animal Facts Texter:** https://github.com/vguzman812/AnimalFactsTexter
+
+**Tranquil Tomato:** https://github.com/vguzman812/tranquilTomato
+
+**A Canvas of Color:** https://github.com/vguzman812/toriRodrigues
+
 
 
 
